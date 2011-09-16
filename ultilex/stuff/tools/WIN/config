@@ -1,0 +1,9 @@
+-v
+-J
+-R
+-D
+-no-emul-boot
+-boot-info-table
+-boot-load-size 4 
+-b "ultilex/stuff/isolinux/isolinux.bin"
+-c "ultilex/stuff/isolinux/isolinux.boot"
