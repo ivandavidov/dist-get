@@ -4,7 +4,7 @@ cd ..
 cd ..
 set CDLABEL=ULTILEX
 
-ultilex\stuff\tools\WIN\mkisofs.exe @ultilex\stuff\tools\WIN\config -o "../ultilex.iso" -A "%CDLABEL%" -V "%CDLABEL%" .
+ultilex\stuff\tools\WIN\mkisofs\mkisofs.exe @ultilex\stuff\tools\WIN\mkisofs\config -o "../ultilex.iso" -A "%CDLABEL%" -V "%CDLABEL%" .
 echo.
 echo New ISO should be created now.
 goto theend
