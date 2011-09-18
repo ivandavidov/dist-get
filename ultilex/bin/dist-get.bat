@@ -43,9 +43,13 @@ cleanup
 goto end
 
 :usbInstall
+cleanup
+bootinst
 goto end
 
 :makeIso
+cleanup
+make_iso
 goto end
 
 :commandNotFound
