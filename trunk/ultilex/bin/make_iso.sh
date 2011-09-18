@@ -12,7 +12,7 @@ if [ "$1" = "--help" -o "$1" = "-h" ]; then
   exit
 fi
 
-CDLABEL="SLAX"
+CDLABEL="ULTILEX"
 ISONAME=$(readlink -f "$1")
 
 cd $(dirname $0)
