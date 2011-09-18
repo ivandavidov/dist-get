@@ -5,6 +5,7 @@ if %1 == install goto install
 if %1 == update goto update
 if %1 == remove goto remove
 if %1 == reorganize goto reorganize
+if %1 == reorganize goto cleanUp
 if %1 == usbinstall goto usbInstall
 if %1 == makeiso goto makeIso
 goto commandNotFound
@@ -25,6 +26,10 @@ goto end
 
 :reorganize
 reorganize
+goto end
+
+:cleanUp
+cleanup
 goto end
 
 :usbInstall

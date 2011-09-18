@@ -3,7 +3,7 @@ SETLOCAL=ENABLEDELAYEDEXPANSION
 cd ..\..
 
 set menus=ultilex\cfg\menus.cfg
-set additionals=ultilex\cfg\additionals.cfg
+set additionals=ultilex\cfg\adds.cfg
 
 if exist !menus! del !menus!
 if exist !additionals! del !additionals!
