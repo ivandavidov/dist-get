@@ -16,8 +16,8 @@ for /D %%g in ("*") do (
 				if exist !dist!\meta\menu.cfg (
 					echo INCLUDE /!dist!/meta/menu.cfg>>!menus!
 				)
-				if exist !dist!\meta\additional.cfg (
-					echo INCLUDE /!dist!/meta/additional.cfg>>!additionals!
+				if exist !dist!\meta\add.cfg (
+					echo INCLUDE /!dist!/meta/add.cfg>>!additionals!
 				)
 			)
 		)
