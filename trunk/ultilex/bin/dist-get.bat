@@ -14,6 +14,7 @@ prepare %2
 goto end
 
 :install
+install %2
 goto end
 
 :update
@@ -23,6 +24,7 @@ goto end
 goto end
 
 :reorganize
+reorganize
 goto end
 
 :usbInstall
