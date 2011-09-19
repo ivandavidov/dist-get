@@ -47,6 +47,8 @@ if !newMD5!==!oldMD5! (
 	echo 1 > temp_neq.tmp
 )
 
+goto end
+
 :corruptedOldMetaData
 echo.
 echo ERROR: Metadata information for '%1' is corrupted or missing. Cannot continue.
