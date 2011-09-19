@@ -1,9 +1,11 @@
 @echo off
 SETLOCAL=ENABLEDELAYEDEXPANSION
 
+if (%1) == () goto missingParameter
+
 mkdir ..\temp
 
-if a_%2==a_local (
+if (%2)==(local) (
 	copy %1 ..\temp\dist.zip
 	goto unzip
 ) else (
@@ -17,6 +19,15 @@ for /f %%a in (..\temp\dist\meta) do (
   set name=%%a
   goto exit
 )
+
 :exit
 ren ..\temp\dist !name!
 del ..\temp\dist.zip
+
+:missingParameter
+echo.
+echo ERROR: Required parameter is missing. Use 'dist-get help' to get more information.
+echo.
+goto end
+
+:end

@@ -1,12 +1,13 @@
 @echo off
 SETLOCAL=ENABLEDELAYEDEXPANSION
+
 cd ..\..
 
 set menus=ultilex\cfg\menus.cfg
 set additionals=ultilex\cfg\adds.cfg
 
-if exist !menus! del !menus!
-if exist !additionals! del !additionals!
+echo. 2>!menus!
+echo. 2>!additionals!
 
 for /D %%g in ("*") do (
 	set dist=%%g
@@ -21,3 +22,5 @@ for /D %%g in ("*") do (
 		)
 	)
 )
+
+cd ultilex\bin
