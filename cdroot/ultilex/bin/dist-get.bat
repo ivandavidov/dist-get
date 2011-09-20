@@ -31,7 +31,7 @@ echo.
 echo about                           Displays information about the authors of
 echo                                 this project.
 echo.
-echo prepare URL_META_FILE [local]   Downloads and prepares a meta data bundle for
+echo prepare URL_META_FILE [local]   Downloads and prepares a metadata bundle for
 echo                                 certain distribution. The URL_META_FILE can
 echo                                 be HTTP/HTTPS location or a local file.
 echo                                 If it is a local file, you need to use the
@@ -46,15 +46,15 @@ echo                                 you provide a previously downloaded ISO fil
 echo                                 as additional parameter.
 echo.
 echo update DISTRO_NAME              Updates the DISTRO_NAME distribution. Please
-echo                                 note that you have to retrieve the new meta
-echo                                 data fisrt by executing 'dist-get prepare'.
+echo                                 note that you have to retrieve the metadata
+echo                                 file fisrt by executing 'dist-get prepare'.
 echo.
 echo remove DISTRO_NAME              Removes the DISTRO_NAME distribution.
 echo.
 echo reorganize                      Builds the boot menu. This command is executed
 echo                                 automatically after install, update and remove.
 echo.
-echo cleanup [DISTRO_NAME]           Removes all temporary meta data. You can remove
+echo cleanup [DISTRO_NAME]           Removes all temporary metadata. You can remove
 echo                                 meta data for DISTRO_NAME by providing it as
 echo                                 additional parameter. This command is executed
 echo                                 automatically before usbinstall or makeiso.
@@ -92,7 +92,7 @@ call reorganize
 goto end
 
 :update
-checkupdate %2
+call checkupdate %2
 
 if exist temp_eq.tmp (
     del temp_eq.tmp
