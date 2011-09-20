@@ -122,7 +122,7 @@ call reorganize
 goto end
 
 :cleanUp
-call cleanup
+call cleanup %2
 goto end
 
 :usbInstall
