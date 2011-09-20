@@ -3,7 +3,7 @@ SETLOCAL=ENABLEDELAYEDEXPANSION
 
 if (%1) == () goto missingParameter
 
-mkdir ..\temp
+if not exist ..\temp mkdir ..\temp
 
 if (%2)==(local) (
 	copy %1 ..\temp\dist.zip
@@ -23,6 +23,7 @@ for /f %%a in (..\temp\dist\meta) do (
 :exit
 ren ..\temp\dist !name!
 del ..\temp\dist.zip
+goto end
 
 :missingParameter
 echo.

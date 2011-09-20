@@ -37,10 +37,15 @@ for /f %%a in (!meta!\meta) do (
 		set newMD5=%%a
 	)
 	if "!counter!"=="3" (
-		set url=%%a
-		..\stuff\tools\WIN\wget\wget -O"..\temp\!name!.iso" !url!
-		echo "Download complete"
-		..\stuff\tools\WIN\7z\7z x ..\temp\!name!.iso -o..\temp\!name!
+        if "%2" == "" (
+            set url=%%a
+            ..\stuff\tools\WIN\wget\wget -O"..\temp\!name!.iso" !url!
+            echo Download complete.
+        ) else (
+            copy %2 ..\temp\!name!.iso
+        )
+        
+        ..\stuff\tools\WIN\7z\7z x ..\temp\!name!.iso -o..\temp\!name!
 	)
 	set /a counter+=1
 )
