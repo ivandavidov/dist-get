@@ -6,11 +6,11 @@ if (%1) == () goto missingParameter
 REM ******************************
 REM Check the meta structure BEGIN
 REM ******************************
-if not exist ..\..\%1\meta goto corruptedOldMetaData
-if not exist ..\..\%1\includes.win goto corruptedOldMetaData
-if not exist ..\..\%1\includes.linux goto corruptedOldMetaData
-if not exist ..\..\%1\menu.cfg goto corruptedOldMetaData
-if not exist ..\..\%1\add.cfg goto corruptedOldMetaData
+if not exist ..\..\%1\meta\meta goto corruptedOldMetaData
+if not exist ..\..\%1\meta\includes.win goto corruptedOldMetaData
+if not exist ..\..\%1\meta\includes.linux goto corruptedOldMetaData
+if not exist ..\..\%1\meta\menu.cfg goto corruptedOldMetaData
+if not exist ..\..\%1\meta\add.cfg goto corruptedOldMetaData
 
 if not exist ..\temp\%1\meta goto corruptedNewMetaData
 if not exist ..\temp\%1\includes.win goto corruptedNewMetaData
@@ -51,7 +51,7 @@ goto end
 
 :corruptedOldMetaData
 echo.
-echo ERROR: Metadata information for '%1' is corrupted or missing. Cannot continue.
+echo ERROR: Existing metadata information for '%1' is corrupted or missing. Cannot continue.
 echo.
 goto end
 
