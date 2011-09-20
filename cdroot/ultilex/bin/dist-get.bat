@@ -3,6 +3,7 @@ SETLOCAL=ENABLEDELAYEDEXPANSION
 
 if (%1) == () goto missing
 if (%1) == (help) goto help
+if (%1) == (about) goto about
 if (%1) == (prepare) goto prepare
 if (%1) == (list) goto list
 if (%1) == (install) goto install
@@ -26,6 +27,9 @@ echo.
 echo Available options: 
 echo. 
 echo help                           Displays the current screen.
+echo.
+echo about                          Displays information about the authors of
+echo                                this project.
 echo.
 echo prepare URL_META_FILE [local]  Downloads and prepares a metadata bundle for
 echo                                certain distribution. The URL_META_FILE can
@@ -64,7 +68,18 @@ goto end
 echo.
 echo TODO list all prepared and all installed distributions.
 echo.
-goto end.
+goto end
+:about
+echo.
+echo *** ULTILEX powered by 'dist-get' ***
+echo.
+echo List of all contributors (in alphabet order):
+echo.
+echo Ivan Davidov, Sofia, Bulgaria (ivan.bgzin.com)
+echo.
+echo Peter Chakalov, Sliven, Bulgaria (peter.chakalov@gmail.com)
+echo.
+goto end
 
 :install
 call install %2
