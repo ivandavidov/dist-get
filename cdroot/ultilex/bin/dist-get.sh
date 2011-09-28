@@ -58,7 +58,7 @@ elif [ "$1" = "about" ]; then
 	echo "Peter Chakalov, Sliven, Bulgaria (peter.chakalov@gmail.com)"
 	echo
 elif [ "$1" = "prepare" ]; then
-	echo "soon"
+	sh prepare.sh $2 $3
 elif [ "$1" = "list" ]; then
 	echo "soon"
 elif [ "$1" = "install" ]; then

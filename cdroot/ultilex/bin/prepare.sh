@@ -17,8 +17,6 @@ else
 
 	unzip ../temp/dist.zip -d ../temp/dist
 	read -r name < ../temp/dist/meta
-	namee = ${name//[[:space:]]}
-echo $namee
 	mv ../temp/dist ../temp/$name
 	rm ../temp/dist.zip
 fi
