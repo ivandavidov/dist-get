@@ -8,8 +8,7 @@ additionals="ultilex/cfg/adds.cfg"
 echo "" > $menus
 echo "" > $additionals
 
-for d in *
-do
+for d in * ; do
 	if [ ! $d = "boot" -o ! $d = "ultilex" ]; then
 		if [ -f $d/meta/menu.cfg ]; then
 			echo "INCLUDE /$d/meta/menu.cfg" >> $menus

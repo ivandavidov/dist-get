@@ -60,21 +60,36 @@ elif [ "$1" = "about" ]; then
 elif [ "$1" = "prepare" ]; then
 	sh prepare.sh $2 $3
 elif [ "$1" = "list" ]; then
-	echo "soon"
+	sh list.sh
 elif [ "$1" = "install" ]; then
-	echo "soon"
+	sh install.sh $2 $3
+	sh reorganize.sh
 elif [ "$1" = "update" ]; then
-	echo "soon"
+	sh checkupdate.sh $2
+	if [ -f temp_eq.tmp ]; then
+		rm temo_eq.tmp
+		echo
+		echo "The distribution '$2' is already up to date"
+		echo
+	elif [ -f temp_neq.tmp ]; then
+		rm temp_neq.tmp
+		sh delete.sh $2
+		sh install.sh $2
+		sh reorganize.sh
+	fi
 elif [ "$1" = "remove" ]; then
-	echo "soon"
+	sh delete.sh $2
+	sh reorganize.sh
 elif [ "$1" = "reorganize" ]; then
-	echo "soon"
+	sh reorganize.sh
 elif [ "$1" = "cleanup" ]; then
-	echo "soon"
+	sh cleanup.sh $2
 elif [ "$1" = "usbinstall" ]; then
-	echo "soon"
+	sh cleanup.sh
+	sh bootinst.sh
 elif [ "$1" = "makeiso" ]; then
-	echo "soon"
+	sh cleanup.sh
+	sh make_iso.sh
 else
 	echo
 	echo "ERROR: Parameter '$1' is not recognized by 'dist-get'."
