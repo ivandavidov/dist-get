@@ -67,7 +67,7 @@ elif [ "$1" = "install" ]; then
 elif [ "$1" = "update" ]; then
 	sh checkupdate.sh $2
 	if [ -f temp_eq.tmp ]; then
-		rm temo_eq.tmp
+		rm temp_eq.tmp
 		echo
 		echo "The distribution '$2' is already up to date"
 		echo
