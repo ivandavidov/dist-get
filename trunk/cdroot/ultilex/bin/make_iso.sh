@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # ---------------------------------------------------
 # Script to create bootable ISO in Linux
 # usage: make_iso.sh [ /tmp/slax.iso ]
