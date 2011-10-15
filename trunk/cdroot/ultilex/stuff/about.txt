@@ -1,0 +1,8 @@
+
+*** ULTILEX powered by 'dist-get' ***
+
+List of all contributors (in alphabet order):
+
+Ivan Davidov, Sofia, Bulgaria (ivan.bgzin.com)
+
+Peter Chakalov, Sliven, Bulgaria (peter.chakalov@gmail.com)
