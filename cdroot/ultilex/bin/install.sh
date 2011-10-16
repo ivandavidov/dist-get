@@ -1,13 +1,30 @@
 #!/bin/sh
 
+print_error()
+{
+	if [ "$1" = "1" ]; then
+		echo
+		echo "ERROR: You have already installed '$1'."
+		echo
+	elif [ "$1" = "2" ]; then
+		echo
+		echo "ERROR: Required parameter is missing. Use 'dist-get help' for more information."
+		echo
+	elif [ "$1" = "3" ]; then
+		echo
+		echo "ERROR: Metadata is missing or corrupted. Use 'dist-get cleanup $1' and then 'dist-get prepare'."
+		echo
+	fi
+	exit 1
+}
+
 meta=../temp/$1
 
 if [ ! -f $meta/meta -o ! -f $meta/includes.win -o ! -f $meta/includes.linux -o ! -f $meta/menu.cfg -o ! -f $meta/add.cfg ]; then
-	echo "Error"
+	print_error 2
 fi
 
 counter=0
-error=0
 
 while IFS= read -r line; do
 	if [ "$counter" = "0" ]; then
@@ -15,7 +32,7 @@ while IFS= read -r line; do
 	elif [ "$counter" = "1" ]; then
 		ddir=../../$line
 		if [ -d $ddir ]; then
-			error=1
+			print_error 1
 			break
 		fi
 		mkdir $ddir
@@ -58,18 +75,4 @@ fi
 sync
 umount ../temp/mnt
 rmdir ../temp/mnt
-
-if [ "$error" = "1" ]; then
-	echo
-	echo "ERROR: You have already installed '$1'."
-	echo
-elif [ "$error" = "2" ]; then
-	echo
-	echo "ERROR: Required parameter is missing. Use 'dist-get help' for more information."
-	echo
-elif [ "$error" = "3" ]; then
-	echo
-	echo "ERROR: Metadata is missing or corrupted. Use 'dist-get cleanup $1' and then 'dist-get prepare'."
-	echo
-fi
 
