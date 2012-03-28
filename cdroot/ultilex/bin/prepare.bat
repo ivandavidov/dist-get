@@ -15,14 +15,20 @@ if (%2)==(local) (
 :unzip
 ..\stuff\tools\WIN\7z\7z x ..\temp\dist.zip -o..\temp\dist
 
-for /f %%a in (..\temp\dist\meta) do (
-  set name=%%a
-  goto exit
+for /f %%v in ('readproperty ..\temp\dist\meta name') do set name=%%v
+for /f %%v in ('readproperty ..\temp\dist\meta installdir') do set installdir=%%v
+
+if not exist ..\..\!installdir! (
+	mkdir ..\..\!installdir!
+	mkdir ..\..\!installdir!\meta
+	REM TODO: mark that dist is not installed (IDEA: create an empty file (this file will contain the md5 of the current installed version))
 )
 
 :exit
 ren ..\temp\dist !name!
+xcopy ..\temp\!name! ..\..\!installdir!\meta\ /s /e /y
 del ..\temp\dist.zip
+rmdir /s /q ..\temp\!name!
 goto end
 
 :missingParameter
