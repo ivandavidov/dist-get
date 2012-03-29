@@ -5,25 +5,28 @@ echo.
 echo Available meta data:
 echo.
 
+cd ..\..\
+
 set /a counter=0
 
-if not exist ..\temp (
-    echo --nothing--
-    goto distro
-)
-
-cd ..\temp
-
 for /d %%v in (*) do (
-    echo %%v
-	set /a counter+=1    
+    if not "%%v"=="boot" (
+        if not "%%v"=="ultilex" (
+            if exist %%v\temp\meta (
+				echo %%v
+				set /a counter+=1
+			)
+        )
+    )
 )
 
-if "!counter!" == "0" (
+if "!counter!"=="0" (
     echo --nothing--
 )
 
-cd ..\bin
+echo.
+
+cd .\ultilex\bin
 
 goto distro
 
@@ -37,16 +40,17 @@ echo.
 set /a counter=0
 
 for /d %%v in (*) do (
-    if not "%%v" == "boot" (
-        if not "%%v" == "ultilex" (
-            echo %%v
+    if not "%%v"=="boot" (
+        if not "%%v"=="ultilex" (
+			if exist %%v\meta\meta (
+				echo %%v
+				set /a counter+=1
+			)
         )
     )
-
-	set /a counter+=1
 )
 
-if "!counter!" == "2" (
+if "!counter!"=="0" (
     echo --nothing--
 )
 
