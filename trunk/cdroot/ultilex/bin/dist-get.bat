@@ -17,7 +17,7 @@ goto commandNotFound
 
 :missing
 echo.
-echo ERROR: Required parameter is missing. Use 'dist-get help' to get more information.
+call printerror missing_param
 echo.
 goto end
 
@@ -49,7 +49,7 @@ if exist temp_eq.tmp (
     del temp_eq.tmp
 
     echo.
-    echo The distribution '%2' is already up to date.
+    call printerror dist_up_to_date %2
     echo.    
 ) else (
 	if exist temp_neq.tmp (
@@ -98,7 +98,7 @@ goto end
 
 :commandNotFound
 echo.
-echo ERROR: Parameter '%1' is not recognized by 'dist-get'.
+call printerror command_not_found %1
 echo.
 
 :end
