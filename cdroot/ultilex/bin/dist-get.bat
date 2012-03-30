@@ -51,14 +51,24 @@ if exist temp_eq.tmp (
     echo.
     echo The distribution '%2' is already up to date.
     echo.    
-)
-
-if exist temp_neq.tmp (
-    del temp_eq.tmp
-    
-    call delete %2
-	call install %2
-	call reorganize
+) else (
+	if exist temp_neq.tmp (
+		del temp_neq.tmp
+		
+		if not exist ..\temp mkdir ..\temp
+		xcopy ..\..\%2\temp\meta ..\temp
+		xcopy ..\..\%2\temp\includes ..\temp
+		xcopy ..\..\%2\temp\add.cfg ..\temp
+		xcopy ..\..\%2\temp\menu.cfg ..\temp
+		call delete %2
+		mkdir ..\..\%2
+		mkdir ..\..\%2\meta
+		mkdir ..\..\%2\temp
+		xcopy ..\temp ..\..\%2\temp /s /e /y
+		rmdir /s /q ..\temp
+		call install %2
+		call reorganize
+	)
 )
 
 goto end

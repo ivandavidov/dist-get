@@ -7,45 +7,35 @@ REM ******************************
 REM Check the meta structure BEGIN
 REM ******************************
 if not exist ..\..\%1\meta\meta goto corruptedOldMetaData
-if not exist ..\..\%1\meta\includes.win goto corruptedOldMetaData
-if not exist ..\..\%1\meta\includes.linux goto corruptedOldMetaData
+if not exist ..\..\%1\meta\includes goto corruptedOldMetaData
 if not exist ..\..\%1\meta\menu.cfg goto corruptedOldMetaData
 if not exist ..\..\%1\meta\add.cfg goto corruptedOldMetaData
 
-if not exist ..\temp\%1\meta goto corruptedNewMetaData
-if not exist ..\temp\%1\includes.win goto corruptedNewMetaData
-if not exist ..\temp\%1\includes.linux goto corruptedNewMetaData
-if not exist ..\temp\%1\menu.cfg goto corruptedNewMetaData
-if not exist ..\temp\%1\add.cfg goto corruptedNewMetaData
+if not exist ..\..\%1\temp\meta goto corruptedNewMetaData
+if not exist ..\..\%1\temp\includes goto corruptedNewMetaData
+if not exist ..\..\%1\temp\menu.cfg goto corruptedNewMetaData
+if not exist ..\..\%1\temp\add.cfg goto corruptedNewMetaData
 REM ****************************
 REM Check the meta structure END
 REM ****************************
 
-set /a counter=0
+REM ***********************************************
+REM Check if distribution needs to be updated BEGIN
+REM ***********************************************
 set oldMeta=..\..\%1\meta
-set newMeta=..\temp\%1
+set newMeta=..\..\%1\temp
 
-for /f %%a in (!oldMeta!\meta) do (
-	if "!counter!"=="2" (
-		set oldMD5=%%a
-	)
-	set /a counter+=1
-)
-
-set /a counter=0
-
-for /f %%a in (!newMeta!\meta) do (
-	if "!counter!"=="2" (
-		set newMD5=%%a
-	)
-	set /a counter+=1
-)
+for /f %%v in ('readproperty !oldMeta!\meta md5') do set oldMD5=%%v
+for /f %%v in ('readproperty !newMeta!\meta md5') do set newMD5=%%v
 
 if !newMD5!==!oldMD5! (
 	echo 0 > temp_eq.tmp
 ) else (
 	echo 1 > temp_neq.tmp
 )
+REM *********************************************
+REM Check if distribution needs to be updated END
+REM *********************************************
 
 goto end
 
