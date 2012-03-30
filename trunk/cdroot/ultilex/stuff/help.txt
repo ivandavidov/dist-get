@@ -4,8 +4,8 @@ Available options:
  
 help                            Displays the current screen.
 
-about                           Displays information about the authors of
-                                this project.
+about                           Displays information about the contributors
+                                to this project.
 
 prepare URL_META_FILE [local]   Downloads and prepares a metadata bundle for
                                 certain distribution. The URL_META_FILE can
