@@ -77,29 +77,29 @@ REM ******************************
 goto end
 
 :missingParam
-set error=2
-goto errorLabel
+echo.
+call printerror mising_param
+echo.
+
+goto end
 
 :corruptedMetaData
-set error=3
-goto errorLabel
+echo.
+call printerror corrupted_meta_data %1
+echo.
+
+goto end
 
 :mismatchName
-set error=4
-goto errorLabel
+echo.
+call printerror mismatch_name %1
+echo.
+
+goto end
 
 :alreadyInstalled
-set error=5
-goto errorLabel
-
-:errorLabel
 echo.
-if "!error!"=="1" echo ERROR: You have already installed '%1'.
-if "!error!"=="2" echo ERROR: Required parameter is missing. Use 'dist-get help' for more information.
-if "!error!"=="3" echo ERROR: Metadata is missing or corrupted. Use 'dist-get cleanup %1' and then 'dist-get prepare'.
-if "!error!"=="4" echo ERROR: This meta data is not for this distribution.
-if "!error!"=="5" echo ERROR: This distribution is already installed.
+call printerror already_installed %1
 echo.
-goto end
 
 :end
