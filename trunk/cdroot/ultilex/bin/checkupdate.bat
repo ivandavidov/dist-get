@@ -41,19 +41,19 @@ goto end
 
 :corruptedOldMetaData
 echo.
-echo ERROR: Existing metadata information for '%1' is corrupted or missing. Cannot continue.
+call printerror corrupted_old_meta_data %1
 echo.
 goto end
 
 :corruptedNewMetaData
 echo.
-echo ERROR: New metadata for '%1' is corrupted or missing. Use 'dist-get prepare' to fix the issue.
+call printerror corrupted_new_meta_data %1
 echo.
 goto end
 
 :missingParameter
 echo.
-echo ERROR: Required parameter is missing. Use 'dist-get help' to get more information.
+call printerror missing_param
 echo.
 goto end
 

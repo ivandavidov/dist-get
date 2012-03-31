@@ -38,7 +38,7 @@ goto end
 
 :missingParameter
 echo.
-echo ERROR: Required parameter is missing. Use 'dist-get help' to get more information.
+call printerror missing_param
 echo.
 goto end
 

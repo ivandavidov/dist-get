@@ -21,9 +21,12 @@ install DISTRO_NAME [ISO_FILE]  Installs the DISTRO_NAME distribution. This
                                 you provide a previously downloaded ISO file
                                 as additional parameter.
 
-update DISTRO_NAME              Updates the DISTRO_NAME distribution. Please
+update DISTRO_NAME [ISO_FILE]   Updates the DISTRO_NAME distribution. Please
                                 note that you have to retrieve the metadata
                                 file fisrt by executing 'dist-get prepare'.
+                                Update requires active internet connection
+                                unless you provide a previously downloaded ISO
+                                file as additional parameter.
 
 remove DISTRO_NAME              Removes the DISTRO_NAME distribution.
 
