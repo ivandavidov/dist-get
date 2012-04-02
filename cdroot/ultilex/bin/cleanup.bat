@@ -7,8 +7,6 @@ goto custom
 REM *********************************
 REM Remove all temp directories BEGIN
 REM *********************************
-if exist ..\temp rmdir /s /q ..\temp
-
 cd ..\..\
 for /d %%v in (*) do (
     if not "%%v"=="boot" (

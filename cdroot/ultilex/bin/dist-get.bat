@@ -43,7 +43,7 @@ call reorganize
 goto end
 
 :update
-call checkupdate %2
+call prepareupdate %2
 
 if exist temp_eq.tmp (
     del temp_eq.tmp
@@ -54,24 +54,6 @@ if exist temp_eq.tmp (
 ) else (
 	if exist temp_neq.tmp (
 		del temp_neq.tmp
-		
-		if not exist ..\temp mkdir ..\temp
-        
-		copy ..\..\%2\temp\meta ..\temp
-		copy ..\..\%2\temp\includes ..\temp
-		copy ..\..\%2\temp\add.cfg ..\temp
-		copy ..\..\%2\temp\menu.cfg ..\temp
-        
-		call delete %2
-        
-		mkdir ..\..\%2
-		mkdir ..\..\%2\meta
-		mkdir ..\..\%2\temp
-        
-		xcopy ..\temp ..\..\%2\temp /s /e /y
-        
-		rmdir /s /q ..\temp
-        
 		call install %2 %3
 		call reorganize
 	)
