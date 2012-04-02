@@ -32,10 +32,44 @@ if !newMD5!==!oldMD5! (
 	echo 0 > temp_eq.tmp
 ) else (
 	echo 1 > temp_neq.tmp
+	goto deleteOldData
 )
 REM *********************************************
 REM Check if distribution needs to be updated END
 REM *********************************************
+goto end
+
+:deleteOldData
+cd ..\..\%1
+for %%v in (*) do (
+    del %%v
+)
+for /d %%v in (*) do (
+    if not "%%v"=="meta" (
+	if not "%%v"=="temp" (
+		rmdir /s /q %%v
+	))
+)
+
+cd meta
+for %%v in (*) do (
+    del %%v
+)
+
+cd ..\temp
+for %%v in (*) do (
+    if not "%%v"=="meta" (
+	if not "%%v"=="includes" (
+	if not "%%v"=="add.cfg" (
+	if not "%%v"=="menu.cfg" (
+		del %%v
+    ))))
+)
+for /d %%v in (*) do (
+	rmdir /s /q %%v
+)
+
+cd ..\..\ultilex\bin
 
 goto end
 
