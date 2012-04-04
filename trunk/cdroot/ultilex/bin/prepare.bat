@@ -9,6 +9,13 @@ if not exist ..\..\!name! (
 	mkdir ..\..\!name!
 	mkdir ..\..\!name!\meta
 	mkdir ..\..\!name!\temp
+) else (
+	if not exist ..\..\!name!\temp (
+		mkdir ..\..\!name!\temp
+	)
+	if not exist ..\..\!name!\meta (
+		mkdir ..\..\!name!\meta
+	)
 )
 
 REM ***************************************

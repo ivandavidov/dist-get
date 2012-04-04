@@ -12,6 +12,13 @@ for /d %%v in (*) do (
     if not "%%v"=="boot" (
         if not "%%v"=="ultilex" (
             if exist %%v\temp rmdir /s /q %%v\temp
+			set is_empty=1
+			for /f %%f in ('dir /b "%%v\meta\*.*"') do (
+				set is_empty=0
+			)
+			if !is_empty!==1 (
+				rmdir /s /q %%v
+			)
         )
     )
 )
