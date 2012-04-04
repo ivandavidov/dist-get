@@ -65,7 +65,6 @@ for /f %%a in ('..\stuff\tools\WIN\properties\sed "s/|/\\/g" !temp!\includes') d
 		set source=%%a
 		set dest="SET"
 	) else (
-		echo !temp!\!name!\!source! !dir!%%a /s /e
 		xcopy !temp!\!name!\!source! !dir!%%a /s /e
 		set dest="NOTSET"
 	)
