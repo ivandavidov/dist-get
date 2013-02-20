@@ -18,9 +18,14 @@ print_error()
 	exit 1
 }
 
-meta=../temp/$1
+temp=../../$1/temp
+dir=../../$1
 
-if [ ! -f $meta/meta -o ! -f $meta/includes.win -o ! -f $meta/includes.linux -o ! -f $meta/menu.cfg -o ! -f $meta/add.cfg ]; then
+if [ ! -f $temp/meta -o
+     ! -f $temp/includes.win -o
+     ! -f $temp/includes.linux -o
+     ! -f $temp/menu.cfg -o
+     ! -f $temp/add.cfg ]; then
 	print_error 2
 fi
 
