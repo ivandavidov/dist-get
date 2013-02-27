@@ -9,7 +9,7 @@ cd ../../
 counter=0
 
 for d in * ; do
-	if [ -d $d -a ! $d = "boot" -a ! $d = "ultilex" -a -d $d/temp/meta]; then
+	if [ -d $d -a ! $d = "boot" -a ! $d = "ultilex" -a -f $d/temp/meta ]; then
 		echo $d
 		counter=$(( counter + 1 ))
 	fi
@@ -26,7 +26,7 @@ echo
 counter=0
 
 for d in * ; do
-	if [ -d $d -a ! $d = "boot" -a ! $d = "ultilex" -a -d $d/meta/meta]; then
+	if [ -d $d -a ! "$d" = "boot" -a ! "$d" = "ultilex" -a -f $d/meta/meta ]; then
 		echo $d
 		counter=$(( counter + 1 ))
 	fi

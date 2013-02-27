@@ -65,7 +65,7 @@ else
 	cp $2 $temp/$name.iso
 fi
 
-sh extractiso.sh "$temp/$name.iso" "$temp/mnt"
+sh extractiso.sh "$temp/$name.iso" "$temp" "mnt"
 #******************************************
 # Downloads or copies the distribution END
 #******************************************

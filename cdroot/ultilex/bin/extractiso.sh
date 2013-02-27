@@ -4,8 +4,8 @@
 # Now, Some global defines
 ISO_FILE="$1"
 ISO_INFO="isoinfo"
-OUT_DIR="$2"
-TMP_FILES="./files.tmp"
+OUT_DIR="$2/$3"
+TMP_FILES="$2/files.tmp"
 DIR_PREFIX="Directory listing of "
 
 # Save all the files tree in tmp log file
