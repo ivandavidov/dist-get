@@ -15,7 +15,7 @@ done
 # Remove all temp directories END
 #*********************************
 else
-	if [ -d $1 -a ! $d = "boot" -a ! $d = "ultilex" -a -d $1/temp ]; then
+	if [ -d $1 -a ! $1 = "boot" -a ! $1 = "ultilex" -a -d $1/temp ]; then
 		rm -rf $1/temp
 	fi
 fi
