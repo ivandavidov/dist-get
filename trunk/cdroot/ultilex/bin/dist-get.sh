@@ -1,10 +1,14 @@
 #!/bin/sh
 set -e
 
+print_error()
+{
+	sh printerror.sh $1 $2
+	exit 1
+}
+
 if [ "$1" = "" ]; then
-	echo
-	echo "ERROR: Required parameter is missing. Use 'dist-get help' to get more information."
-	echo
+	print_error missing_param $1
 elif [ "$1" = "help" ]; then
 	cat ../stuff/help.txt | more
 elif [ "$1" = "about" ]; then
@@ -20,9 +24,7 @@ elif [ "$1" = "update" ]; then
 	sh prepareupdate.sh $2
 	if [ -f temp_eq.tmp ]; then
 		rm temp_eq.tmp
-		echo
-		echo "The distribution '$2' is already up to date"
-		echo
+		print_error dist_up_to_date $2
 	elif [ -f temp_neq.tmp ]; then
 		rm temp_neq.tmp
 		sh install.sh $2
@@ -42,7 +44,5 @@ elif [ "$1" = "makeiso" ]; then
 	sh cleanup.sh
 	sh make_iso.sh
 else
-	echo
-	echo "ERROR: Parameter '$1' is not recognized by 'dist-get'."
-	echo
+	print_error command_not_found $1
 fi
