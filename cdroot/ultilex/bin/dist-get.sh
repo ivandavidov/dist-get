@@ -17,7 +17,7 @@ elif [ "$1" = "install" ]; then
 	sh install.sh $2 $3
 	sh reorganize.sh
 elif [ "$1" = "update" ]; then
-	sh checkupdate.sh $2
+	sh prepareupdate.sh $2
 	if [ -f temp_eq.tmp ]; then
 		rm temp_eq.tmp
 		echo
