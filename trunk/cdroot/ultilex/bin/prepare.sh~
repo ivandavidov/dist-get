@@ -6,7 +6,7 @@ if [ "$1" = "" ]; then
 	echo
 else
 	name=$(echo -n "$1" | sed "s/.*\///g" | sed "s/\..*//")
-	
+	echo "[$name]"
 	if [ ! -d ../../$name ]; then
 		mkdir ../../$name
 		mkdir ../../$name/meta

@@ -84,7 +84,7 @@ while IFS= read -r line; do
 		dest="NOTSET"
 	fi
 done < $temp/includes
-line=$(echo -n "$line" | sed "s/|/\//g")
+
 if [ $dest = "SET" ]; then
 	cp -R $temp/mnt$source $dir$line
 	dest="NOTSET"
