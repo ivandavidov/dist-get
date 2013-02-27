@@ -25,7 +25,6 @@ elif [ "$1" = "update" ]; then
 		echo
 	elif [ -f temp_neq.tmp ]; then
 		rm temp_neq.tmp
-		sh delete.sh $2
 		sh install.sh $2
 		sh reorganize.sh
 	fi
