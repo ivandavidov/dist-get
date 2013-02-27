@@ -17,11 +17,11 @@ dir=../../$1
 # Check the meta structure BEGIN
 #********************************
 if [ ! -f $temp/meta -o ! -f $temp/includes -o ! -f $temp/menu.cfg -o ! -f $temp/add.cfg ]; then
-	print_error corrupted_old_meta_data $1
+	print_error corrupted_new_meta_data $1
 fi
 
 if [ ! -f $dir/meta/meta -o ! -f $dir/meta/includes -o ! -f $dir/meta/menu.cfg -o ! -f $dir/meta/add.cfg ]; then
-	print_error corrupted_new_meta_data $1
+	print_error corrupted_old_meta_data $1
 fi
 #******************************
 # Check the meta structure END
@@ -44,7 +44,7 @@ else
 			rm -rf $d
 		fi
 	done
-	cd ultilex/bin
+	cd ../ultilex/bin
 fi
 
 
