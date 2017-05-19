@@ -2,13 +2,13 @@
 
 **dist-get** is the successor of the [Ultilex](http://ultilex.linux-bg.org/ "ULTILEX - The Ultimate Linux Experience") project. It allows you to create and manage set of live Linux distributions in easy way, with just few console commands.  
 
-Ultilex is 100% hand made and each new version required trmendous amount of time. On top of that, even though Ultilex provided the users with tons of boot options, many users requested either more/different options or entirely different set of distributions to be included in the compilation set. And there was no option to update any of these distributions once they were installed.
+Ultilex is 100% hand made and each new version required tremendous amount of time. On top of that, even though Ultilex provided the users with tons of boot options, many users requested either more/different options or entirely different set of distributions to be included in the compilation set. And there was no option to update any of these distributions once they were installed.
 
 That's why I and [Petar Chakalov](http://bg.linkedin.com/in/chakalov) started **dist-get** with the idea to create a command line tool which automatically creates bootable ISO files out of live Linux distributions and manages the lifecycle of these distributions (update and remove distributions without touching any other distribution in the compilation set).
 
 ## Available Commands
 
-Currently the project is in *proff of concept* phase but it is still fully functional. It is designed to behave in the same way both on Linux and Windows machines. Here is the list of all currently supported *dist-get* commands:
+Currently the project is in *proof of concept* phase but it is still fully functional. It is designed to behave in the same way both on Linux and Windows machines. Here is the list of all currently supported *dist-get* commands:
 
 <pre>
 *** dist-get help page ***
@@ -30,14 +30,14 @@ list                            Displays a list of all prepared and installed
                                 distributions.
                                 
 install DISTRO_NAME [ISO_FILE]  Installs the DISTRO_NAME distribution. This
-                                requires active internet connection unless
+                                requires active Internet connection unless
                                 you provide a previously downloaded ISO file
                                 as additional parameter.
 
 update DISTRO_NAME [ISO_FILE]   Updates the DISTRO_NAME distribution. Please
                                 note that you have to retrieve the metadata
-                                file fisrt by executing 'dist-get prepare'.
-                                Update requires active internet connection
+                                file first by executing 'dist-get prepare'.
+                                Update requires active Internet connection
                                 unless you provide a previously downloaded ISO
                                 file as additional parameter.
 
@@ -235,4 +235,4 @@ Max brk space used 19000
 New ISO should be created now.
 </pre>
 
-The final ISO image is **ultilex.iso** and it is generted in the main repository folder.
+The final ISO image is **ultilex.iso** and it is generated in the main repository folder.
